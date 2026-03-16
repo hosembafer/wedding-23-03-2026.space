@@ -186,4 +186,48 @@
 
     gridHTML += '</div>';
     calendarEl.innerHTML = gridHTML;
+
+    // ============= COUNTDOWN =============
+    var countdownEl = document.getElementById('countdown');
+    var weddingDate = new Date(2026, 2, 23, 0, 0, 0); // March 23, 2026
+
+    function updateCountdown() {
+        var now = new Date();
+        var diff = weddingDate - now;
+
+        if (diff <= 0) {
+            countdownEl.innerHTML = '';
+            return;
+        }
+
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        countdownEl.innerHTML =
+            '<div class="countdown__block">' +
+                '<div class="countdown__number">' + days + '</div>' +
+                '<div class="countdown__label">Օր</div>' +
+            '</div>' +
+            '<div class="countdown__separator">:</div>' +
+            '<div class="countdown__block">' +
+                '<div class="countdown__number">' + (hours < 10 ? '0' : '') + hours + '</div>' +
+                '<div class="countdown__label">Ժամ</div>' +
+            '</div>' +
+            '<div class="countdown__separator">:</div>' +
+            '<div class="countdown__block">' +
+                '<div class="countdown__number">' + (minutes < 10 ? '0' : '') + minutes + '</div>' +
+                '<div class="countdown__label">Րոպե</div>' +
+            '</div>' +
+            '<div class="countdown__separator">:</div>' +
+            '<div class="countdown__block">' +
+                '<div class="countdown__number">' + (seconds < 10 ? '0' : '') + seconds + '</div>' +
+                '<div class="countdown__label">Վայրկյան</div>' +
+            ''+
+            '</div>';
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 })();

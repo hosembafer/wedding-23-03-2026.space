@@ -15,9 +15,9 @@
     --color-dark: #1a1a1a;
     --color-dark2: #2a2a2a;
 
-    --font-heading: 'Noto Serif Armenian', serif;
-    --font-body: 'Noto Sans Armenian', sans-serif;
-    --font-accent: 'Cormorant Garamond', serif;
+    --font-heading: "Montserrat", sans-serif;
+    --font-body: "Montserrat", sans-serif;
+    --font-accent: "Montserrat", sans-serif;
 }
 
 /* ============= RESET & BASE ============= */
@@ -425,6 +425,7 @@ a:hover {
     z-index: 2;
     text-align: center;
     padding: 40px 20px;
+    margin-top: -280px;
 }
 
 .hero__name {
@@ -585,6 +586,63 @@ a:hover {
 @keyframes pulse-gold {
     0%, 100% { box-shadow: 0 0 0 0 rgba(184, 147, 90, 0.4); }
     50% { box-shadow: 0 0 0 10px rgba(184, 147, 90, 0); }
+}
+
+/* ============= COUNTDOWN ============= */
+.countdown {
+    max-width: 420px;
+    margin: 40px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.countdown__block {
+    text-align: center;
+}
+
+.countdown__number {
+    font-family: var(--font-accent);
+    font-weight: 300;
+    font-size: 42px;
+    color: var(--color-accent-gold);
+    line-height: 1;
+}
+
+.countdown__label {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+    margin-top: 6px;
+}
+
+.countdown__separator {
+    font-family: var(--font-accent);
+    font-weight: 300;
+    font-size: 42px;
+    color: var(--color-accent-gold);
+    opacity: 0.4;
+    line-height: 1;
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        gap: 16px;
+    }
+
+    .countdown__number {
+        font-size: 32px;
+    }
+
+    .countdown__separator {
+        font-size: 32px;
+    }
+
+    .countdown__label {
+        font-size: 10px;
+    }
 }
 
 /* ============= TIMELINE ============= */
@@ -889,6 +947,7 @@ a:hover {
     }
 
     .hero__name {
+        color: var(--color-accent-gold-light);
         font-size: 32px;
     }
 
